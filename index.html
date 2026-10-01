@@ -328,6 +328,16 @@ section{
   font-weight:700;
   white-space:nowrap
 }
+.cart-icon{
+  display:none;
+  width:20px;
+  height:20px;
+  fill:none;
+  stroke:currentColor;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-width:1.8
+}
 .cart-count{
   display:inline-grid;
   place-items:center;
@@ -343,6 +353,58 @@ section{
 .cart-drawer{
   background:#fffdf7;
   color:#1b1108
+}
+@media(max-width:767.98px){
+  .cart-drawer.offcanvas-end{
+    top:auto;
+    right:0;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:min(78dvh,620px);
+    max-height:calc(100dvh - 1rem);
+    border-radius:18px 18px 0 0;
+    transform:translateY(100%);
+    box-shadow:0 -12px 40px rgba(0,0,0,.2)
+  }
+  .cart-drawer.offcanvas-end.show{
+    transform:translateY(0)
+  }
+  .cart-drawer.offcanvas-end.hiding{
+    transform:translateY(100%)
+  }
+  .cart-drawer .offcanvas-header{
+    padding:1.35rem 1.1rem 1rem
+  }
+  .cart-drawer .offcanvas-body{
+    padding:1rem 1.1rem calc(1.25rem + env(safe-area-inset-bottom));
+    overflow-y:auto
+  }
+}
+@media(max-width:767.98px){
+  .cart-nav{
+    display:grid;
+    place-items:center;
+    width:40px;
+    height:40px;
+    padding:0;
+    border-radius:50%;
+    font-size:0
+  }
+  .cart-icon{
+    display:block
+  }
+  .cart-count{
+    position:absolute;
+    top:-3px;
+    right:-4px;
+    min-width:17px;
+    height:17px;
+    margin:0;
+    padding:0 3px;
+    border:2px solid var(--gold);
+    font-size:.65rem
+  }
 }
 .cart-drawer .btn-close{
   filter:none
@@ -623,7 +685,10 @@ footer{
       <a href="#produk">Produk</a><a href="#kenapa">Kenapa kami</a><a href="#reseller">Reseller</a><a href="https://wa.me/6289520659742" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.instagram.com/berkahsnack_bdg" target="_blank" rel="noopener">Instagram</a><a href="https://shopee.co.id/berkahsnack_bdg" target="_blank" rel="noopener">Shopee</a><a href="#lokasi">Lokasi</a>
     </nav>
     <div class="d-flex align-items-center gap-2">
-      <button class="cart-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" aria-controls="cartDrawer">Keranjang <span class="cart-count" id="cartCount" aria-live="polite">0</span></button>
+      <button class="cart-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" aria-controls="cartDrawer" aria-label="Buka keranjang">
+        <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 11.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 9H6"></path><circle cx="10" cy="21" r="1"></circle><circle cx="18" cy="21" r="1"></circle></svg>
+        <span class="cart-label">Keranjang</span><span class="cart-count" id="cartCount" aria-live="polite">0</span>
+      </button>
       <button class="menu-btn d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Buka menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -724,14 +789,14 @@ footer{
       <div class="row g-5">
         <div class="col-lg-5"><h2 class="h-lg">Belanja snack tanpa ribet</h2></div>
         <div class="col-lg-7">
-          <div class="reason"><h3><b>Murah.</b> Harga bersahabat</h3><p class="muted mb-0">Cocok untuk stok di rumah, oleh-oleh, acara keluarga, atau dijual lagi.</p></div>
-          <div class="reason"><h3><b>Berkualitas.</b> Dikemas rapi</h3><p class="muted mb-0">Setiap snack dikemas dalam plastik bening bersegel dan berlabel Berkah Snack.</p></div>
-          <div class="reason"><h3><b>Bergaransi.</b> Aman dipesan</h3><p class="muted mb-0">Ada masalah dengan pesanan? Hubungi kami lewat WhatsApp.</p></div>
+          <div class="reason"><h3><b>Murah,</b> Harga bersahabat</h3><p class="muted mb-0">Cocok untuk stok di rumah, oleh-oleh, acara keluarga, atau dijual lagi.</p></div>
+          <div class="reason"><h3><b>Berkualitas,</b> Dikemas rapi</h3><p class="muted mb-0">Setiap snack dikemas dalam plastik bening bersegel dan berlabel Berkah Snack.</p></div>
+          <div class="reason"><h3><b>Bergaransi,</b> Aman dipesan</h3><p class="muted mb-0">Ada masalah dengan pesanan? Hubungi kami lewat WhatsApp.</p></div>
         </div>
       </div>
     </div>
   </section>
-
+  
   <section class="reseller" id="reseller">
     <div class="container">
       <div class="row g-4 align-items-center">
