@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berkah Snack – Aneka Snack, Kue & Cemilan di Bandung</title>
+<meta name="description" content="Toko Berkah Snack di Babakan Cianjur, Bandung. Jual aneka snack, kue & cemilan. Murah, berkualitas, bergaransi. Open reseller.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.css">
+<style>
+:root{
+  --bg:#1b1108; 
+  --bg2:#26180c; 
+  --cream:#fff1d0; 
+  --gold:#ffc300; 
+  --chili:#e8422f; 
+  --kraft:#c9975b;
+  --bs-body-bg:var(--bg); 
+  --bs-body-color:var(--cream);
+}
+html{scroll-padding-top:80px}
+body{
+  font-family:'DM Sans',
+  system-ui,sans-serif;font-size:1.05rem;
+  line-height:1.6;
+  background:var(--bg);
+  color:var(--cream);
+  overflow-x:hidden
+}
+h1,h2,h3,.display{
+  font-family:'Bricolage Grotesque',
+  sans-serif;font-weight:800;
+  letter-spacing:-.03em;
+  line-height:.95
+}
+a{color:inherit}
+:focus-visible{
+  outline:3px 
+  solid var(--gold);
+  outline-offset:3px
+}
+.muted{
+  color:rgba(255,241,208,.68)
+}
+.btn-gold{
+  background:var(--gold);
+  color:#1b1108;
+  font-weight:500;
+  border:0;
+  border-radius:100px;
+  padding:.85rem 1.6rem
+}
+.btn-gold:hover{
+  background:#ffd23f;
+  color:#1b1108
+}
+.btn-line{
+  border:1.5px solid rgba(255,241,208,.4);
+  color:var(--cream);
+  border-radius:100px;
+  padding:.85rem 1.6rem
+}
+.btn-line:hover{
+  border-color:var(--gold);
+  color:var(--gold)
+}
+
+/* nav */
+.nav-wrap{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:50;
+  padding:.9rem 0;
+  transition:background .3s
+}
+.nav-wrap.solid{
+  background:rgba(27,17,8,.88);
+  backdrop-filter:blur(10px)
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  text-decoration:none;
+  font-family:'Bricolage Grotesque';
+  font-weight:800;
+  font-size:1.25rem
+}
+.brand img{
+  border-radius:50%
+}
+.nav-links a{
+  text-decoration:none;
+  margin-left:1.6rem;
+  opacity:.8
+}
+.nav-links a:hover{
+  opacity:1;
+  color:var(--gold)
+}
+
+/* hero */
+.hero{
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:7rem 0 3rem;
+  position:relative;
+  overflow:hidden
+}
+.hero-word{
+  font-size:clamp(4.2rem,17.5vw,17rem);
+  color:var(--gold);
+  white-space:nowrap;
+  margin:0;
+  will-change:transform
+}
+.hero-word.w2{
+  color:var(--cream);
+  margin-left:8vw
+}
+.hero-word span{
+  display:inline-block;
+  opacity:0;
+  transform:translateY(60%);
+  animation:up .9s cubic-bezier(.2,.8,.2,1) forwards
+}
+@keyframes up{
+  to{opacity:1;
+    transform:none}
+  }
+.hero-logo{
+  position:absolute;
+  right:6%;
+  top:15%;
+  width:clamp(120px,27vw,400px);
+  height:auto;
+  aspect-ratio:1;
+  border-radius:50%;
+  rotate:-6deg;
+  box-shadow:0 24px 60px rgba(0,0,0,.5);
+  opacity:0;
+  animation:fade 1s .5s ease forwards;
+  will-change:transform
+}
+@keyframes fade{
+  to{opacity:1}
+}
+@media(
+  min-width:992px)
+  {.hero-logo{right:17%;top:22%}}
+.hero-bag{
+  position:absolute;
+  border-radius:14px;
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+  width:clamp(110px,15vw,210px);
+  aspect-ratio:4/5;
+  object-fit:cover;
+  will-change:transform
+}
+.hero-bag.b1{
+  right:9%;
+  top:16%;
+  rotate:7deg
+}
+.hero-bag.b2{
+  right:24%;
+  top:30%;
+  rotate:-6deg;
+  width:clamp(90px,11vw,160px)
+}
+.hero-lead{
+  max-width:34rem;
+  font-size:1.2rem
+}
+
+/* marquee */
+.marquee{
+  border-block:1px solid rgba(255,241,208,.18);
+  overflow:hidden;
+  background:var(--gold);color:#1b1108
+}
+.marquee-track{
+  display:flex;
+  width:max-content;
+  animation:mq 38s linear infinite
+}
+.marquee-track span{
+  font-family:'Bricolage Grotesque';
+  font-weight:800;
+  font-size:clamp(1.5rem,3.4vw,2.6rem);
+  padding:.9rem 1.6rem;
+  white-space:nowrap
+}
+.marquee-track span::after{
+  content:"•";
+  margin-left:3.2rem;
+  color:var(--chili)
+}
+@keyframes mq{
+  to{
+    transform:translateX(-50%)
+  }
+}
+
+/* sections */
+section{
+  padding:clamp(4.5rem,10vw,9rem) 0
+}
+.h-xl{
+  font-size:clamp(2.6rem,7.5vw,6.5rem)
+}
+.h-lg{
+  font-size:clamp(2.2rem,5vw,4rem)
+}
+
+/* products */
+.light{
+  background:#fffdf7;
+  color:#1b1108
+}
+.light .muted{
+  color:rgba(27,17,8,.68)
+}
+.light .btn-line{
+  border-color:rgba(27,17,8,.3);
+  color:#1b1108
+}
+.light .btn-line:hover{
+  border-color:var(--chili);
+  color:var(--chili)
+}
+.light h2 em{
+  font-style:normal;
+  color:var(--chili)
+}
+.slider{
+  overflow:hidden;
+  padding:.6rem 0
+}
+.track{
+  display:flex;
+  gap:1rem;
+  width:max-content;
+  animation:slide 60s linear infinite
+}
+.track.rev{
+  animation-direction:reverse;
+  animation-duration:70s
+}
+.slider:hover .track{
+  animation-play-state:paused
+}
+@keyframes slide{
+  to{
+    transform:translateX(-50%)
+  }
+}
+.prod{
+  flex:none;
+  width:clamp(150px,42vw,230px)
+}
+@media(prefers-reduced-motion:reduce){.slider{overflow-x:auto}.track{animation:none}}
+.prod{
+  background:#fff;
+  color:#1b1108;
+  border:1.5px solid #efe3c8;
+  border-radius:18px;
+  overflow:hidden;
+  transition:transform .35s,border-color .3s
+}
+.prod:hover{
+  transform:translateY(-6px);
+  border-color:var(--gold)
+}
+.prod{
+  display:flex;
+  flex-direction:column
+}
+.prod img.ph{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  display:block;
+  background:#fff6dd
+}
+.prod p{
+  margin:0;
+  padding:.7rem .85rem .85rem;
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  font-family:'Bricolage Grotesque';
+  font-weight:800;
+  font-size:1rem;
+  line-height:1.1
+}
+.prod p img{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  flex:none
+}
+.add-to-cart{
+  margin:auto .7rem .7rem;
+  padding:.55rem .7rem;
+  border:0;
+  border-radius:8px;
+  background:#1b1108;
+  color:var(--cream);
+  font-weight:700
+}
+.add-to-cart:hover{
+  background:var(--chili);
+  color:#fff
+}
+.cart-nav{
+  position:relative;
+  background:var(--gold);
+  color:#1b1108;
+  border:0;
+  border-radius:100px;
+  padding:.55rem .9rem;
+  font-weight:700;
+  white-space:nowrap
+}
+.cart-count{
+  display:inline-grid;
+  place-items:center;
+  min-width:1.35rem;
+  height:1.35rem;
+  margin-left:.25rem;
+  padding:0 .25rem;
+  border-radius:100px;
+  background:#1b1108;
+  color:var(--gold);
+  font-size:.78rem
+}
+.cart-drawer{
+  background:#fffdf7;
+  color:#1b1108
+}
+.cart-drawer .btn-close{
+  filter:none
+}
+.cart-item{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:.75rem;
+  padding:1rem 0;
+  border-bottom:1px solid #e6ddca
+}
+.cart-item-name{
+  font-weight:700;
+  line-height:1.25
+}
+.cart-quantity{
+  display:flex;
+  align-items:center;
+  gap:.55rem
+}
+.cart-quantity button{
+  width:34px;
+  height:34px;
+  border:1px solid #d9ccb1;
+  border-radius:6px;
+  background:#fff;
+  color:#1b1108;
+  font-size:1.1rem
+}
+.cart-quantity button:hover{
+  border-color:var(--chili);
+  color:var(--chili)
+}
+.cart-empty{
+  padding:2rem 0;
+  color:rgba(27,17,8,.65);
+  text-align:center
+}
+.cart-note{
+  font-size:.9rem;
+  color:rgba(27,17,8,.68)
+}
+
+/* reasons */
+.reasons{
+  background:var(--bg2)
+}
+.reason{
+  border-top:1.5px solid rgba(255,241,208,.25);
+  padding:1.6rem 0
+}
+.reason h3{
+  font-size:clamp(1.8rem,3.2vw,2.6rem);
+  margin-bottom:.5rem
+}
+.reason h3 b{
+  color:var(--gold);
+  font-weight:800
+}
+.reasons .h-lg{color:#fff}
+
+/* reseller */
+.reseller{
+  background:var(--gold);
+  color:#1b1108
+}
+.reseller .muted{
+  color:rgba(27,17,8,.75)
+}
+.btn-dark2{
+  background:#1b1108;
+  color:var(--cream);
+  border-radius:100px;
+  padding:.85rem 1.6rem;
+  border:0
+}
+.btn-dark2:hover{
+  background:#000;
+  color:var(--gold)
+}
+
+/* location */
+.shop-photo{
+  border-radius:20px;
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  object-position:55% 50%
+}
+.info-row{
+  border-top:1px solid rgba(27,17,8,.15);
+  padding:1rem 0
+}
+footer a:hover,.nav-wrap .d-md-none a:hover{
+  color:var(--gold)
+}
+.nav-wrap .d-md-none a{
+  text-decoration:none;
+  font-size:.95rem
+}
+footer a{
+  text-decoration:none
+}
+footer{
+  padding:2.5rem 0;
+  border-top:1px solid rgba(255,241,208,.15)
+}
+.wa-float{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:60;
+  background:#25d366;
+  color:#053b1d;
+  border-radius:100px;
+  padding:.75rem 1.2rem;
+  font-weight:500;
+  text-decoration:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.4)
+}
+@media(prefers-reduced-motion:reduce){
+  .marquee-track{animation:none}
+  .hero-word span,.hero-logo{animation:none;opacity:1;transform:none}
+}
+
+/* mobile nav */
+.brand{
+  white-space:nowrap
+}
+.menu-btn{
+  background:none;
+  border:0;
+  width:44px;
+  height:44px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-end;
+  gap:6px;
+  padding:0
+}
+.menu-btn span{
+  display:block;
+  height:2.5px;
+  width:26px;
+  background:var(--cream);
+  border-radius:2px;
+  transition:.25s
+}
+.menu-btn span:nth-child(2){
+  width:18px
+}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
+.nav-wrap:has(#menu.show){
+  background:var(--bg)
+}
+.menu-list{
+  display:flex;
+  flex-direction:column;
+  padding-top:.6rem;
+  padding-bottom:1rem
+}
+.menu-list a{
+  text-decoration:none;
+  font-family:'Bricolage Grotesque';
+  font-weight:800;
+  font-size:1.6rem;
+  padding:.55rem 0;
+  border-top:1px solid rgba(255,241,208,.15)
+}
+.menu-list a:hover{
+  color:var(--gold)
+}
+@media(max-width:991.98px){
+  .hero{padding-top:6rem}
+  .hero-logo{position:static;display:block;width:clamp(120px,40vw,240px);margin:1.4rem 0 0;rotate:-6deg}
+  .hero-lead{font-size:1.05rem}
+  footer{padding-bottom:5rem}
+}
+
+/* filter chips */
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin-bottom:1.6rem
+}
+.chip{
+  border:1.5px solid rgba(27,17,8,.25);
+  background:#fff;color:#1b1108;
+  border-radius:100px;
+  padding:.5rem 1.3rem;
+  font-weight:500;
+  transition:.2s
+}
+.chip:hover{
+  border-color:var(--chili)
+}
+.chip.active{
+  background:#1b1108;
+  border-color:#1b1108;
+  color:var(--gold)
+}
+.track{
+  transition:opacity .25s
+}
+.product-search{
+  max-width:32rem;
+  margin-bottom:1.25rem
+}
+.product-search input{
+  border:1.5px solid #d9ccb1;
+  border-radius:8px;
+  padding:.8rem 1rem;
+  color:#1b1108;
+  background:#fff
+}
+.product-search input:focus{
+  border-color:var(--chili);
+  box-shadow:0 0 0 .2rem rgba(232,66,47,.15)
+}
+.product-count{
+  min-height:1.5rem;
+  color:rgba(27,17,8,.68);
+  font-size:.95rem
+}
+.price-callout{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.2rem .65rem;
+  margin:1.5rem 0 1.6rem;
+  padding:1rem 1.2rem;
+  border-left:6px solid var(--chili);
+  background:#fff1d0;
+  color:#1b1108
+}
+.price-callout strong{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:1.65rem;
+  font-weight:800
+}
+.price-callout span:last-child{
+  flex-basis:100%;
+  color:rgba(27,17,8,.72);
+  font-size:.95rem
+}
+.slider.filtered{
+  overflow:visible;
+  padding-inline:calc((100% - min(100% - 2rem, 1320px))/2)
+}
+.slider.filtered .track{
+  display:grid;
+  width:100%;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));
+  gap:1rem;
+  animation:none!important
+}
+.slider.filtered .prod{
+  width:100%
+}
+.reviews{background:#fff1d0;color:#1b1108}
+.reviews .muted{color:rgba(27,17,8,.68)}
+.review-card{height:100%;padding:1.5rem;border:1.5px solid rgba(27,17,8,.16);border-radius:12px;background:#fffdf7}
+.review-stars{color:#bd4a2d;letter-spacing:0;font-size:1.15rem}
+.review-card blockquote{margin:1rem 0;font-size:1.05rem}
+.review-card cite{font-style:normal;font-weight:700}
+</style>
+</head>
+<body>
+
+<header class="nav-wrap" id="nav">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a class="brand" href="#top"><img src="images/logo.png" alt="" width="36" height="36">Berkah Snack</a>
+    <nav class="nav-links d-none d-md-block">
+      <a href="#produk">Produk</a><a href="#kenapa">Kenapa kami</a><a href="#reseller">Reseller</a><a href="https://wa.me/6289520659742" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.instagram.com/berkahsnack_bdg" target="_blank" rel="noopener">Instagram</a><a href="https://shopee.co.id/berkahsnack_bdg" target="_blank" rel="noopener">Shopee</a><a href="#lokasi">Lokasi</a>
+    </nav>
+    <div class="d-flex align-items-center gap-2">
+      <button class="cart-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" aria-controls="cartDrawer">Keranjang <span class="cart-count" id="cartCount" aria-live="polite">0</span></button>
+      <button class="menu-btn d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="collapse d-md-none" id="menu">
+    <div class="container menu-list">
+      <a href="#produk">Produk</a><a href="#kenapa">Kenapa kami</a><a href="#reseller">Reseller</a>
+      <a href="https://wa.me/6289520659742" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.instagram.com/berkahsnack_bdg" target="_blank" rel="noopener">Instagram</a><a href="https://shopee.co.id/berkahsnack_bdg" target="_blank" rel="noopener">Shopee</a><a href="#lokasi">Lokasi</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="container-fluid px-3 px-md-4">
+      <h1 class="hero-word" data-speed="0.05" aria-label="Berkah Snack">
+        <span style="animation-delay:.05s">Berkah</span>
+      </h1>
+      <p class="hero-word w2 display" data-speed="-0.05">
+        <span style="animation-delay:.25s">Snack</span>
+      </p>
+      <img class="hero-logo" src="images/logo.png" alt="Logo Berkah Snack" width="380" height="380" data-speed="-0.1">
+      <div class="row align-items-end mt-4 g-4">
+        <div class="col-lg-6">
+          <p class="hero-lead">Aneka snack, kue & cemilan dari Babakan Cianjur, Bandung. Murah, berkualitas, dan bergaransi.</p>
+        </div>
+        <div class="col-lg-6 d-flex flex-wrap gap-2 justify-content-lg-end">
+          <a class="btn btn-gold" href="https://wa.me/6289520659742">Pesan lewat WhatsApp</a>
+          <a class="btn btn-line" href="https://www.instagram.com/berkahsnack_bdg" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn btn-line" href="https://shopee.co.id/berkahsnack_bdg" target="_blank" rel="noopener">Shopee</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="produk" class="light">
+    <div class="container">
+      <div class="row mb-4 g-3 align-items-end">
+        <div class="col-lg-8"><h2 class="h-xl">Cemilan yang bikin nambah terus</h2></div>
+        <div class="col-lg-4"><p class="muted mb-0">Tanyakan harga dan stok setiap produk lewat WhatsApp atau lihat di Shopee.</p></div>
+      </div>
+      <label class="product-search d-block" for="productSearch">
+        <span class="visually-hidden">Cari nama produk</span>
+        <input class="form-control" id="productSearch" type="search" placeholder="Cari nama produk..." autocomplete="off">
+      </label>
+      <div class="chips" id="chips" role="group" aria-label="Pilih rasa">
+        <button type="button" class="chip active" data-tag="semua" aria-pressed="true">Semua</button>
+        <button type="button" class="chip" data-tag="gurih" aria-pressed="false">Gurih</button>
+        <button type="button" class="chip" data-tag="pedas" aria-pressed="false">Pedas</button>
+        <button type="button" class="chip" data-tag="manis" aria-pressed="false">Manis</button>
+      </div>
+      <div class="price-callout" role="note"><span>Harga online di Shopee mulai dari</span><strong>Rp10.000</strong><span>Beli langsung di toko bisa lebih murah.</span></div>
+    </div>
+    <p class="container product-count" id="productCount" aria-live="polite"></p>
+    <div class="slider mt-2" aria-label="Daftar produk"><div class="track" id="row1"></div></div>
+    <div class="slider mt-3" id="slider2" aria-hidden="true"><div class="track rev" id="row2"></div></div>
+    <div class="container">
+      <div class="d-flex flex-wrap gap-2 mt-5">
+        <a class="btn btn-dark2" href="https://shopee.co.id/berkahsnack_bdg" target="_blank" rel="noopener">Belanja di Shopee</a>
+        <a class="btn btn-line" href="https://www.instagram.com/berkahsnack_bdg" target="_blank" rel="noopener">Lihat di Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="ulasan">
+    <div class="container">
+      <div class="row g-3 align-items-end mb-4">
+        <div class="col-lg-8"><h2 class="h-xl">Rating & cerita pelanggan</h2></div>
+        <div class="col-lg-4"><p class="muted mb-0">Contoh tampilan ulasan. Ganti dengan rating dan testimoni pelanggan Berkah Snack yang sudah mendapat izin.</p></div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <article class="review-card">
+            <div class="review-stars" aria-label="Rating 5 dari 5">★★★★★</div>
+            <blockquote>“Cemilannya enak dan kemasannya rapi. Cocok buat teman kumpul keluarga.”</blockquote>
+            <cite>Rina</cite>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="review-card">
+            <div class="review-stars" aria-label="Rating 5 dari 5">★★★★★</div>
+            <blockquote>“Pilihan snack-nya banyak, jadi gampang cari camilan yang disukai semua orang.”</blockquote>
+            <cite>Dedi</cite>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="review-card">
+            <div class="review-stars" aria-label="Rating 5 dari 5">★★★★★</div>
+            <blockquote>“Pesanannya ditangani dengan ramah. Pasti ingin belanja lagi.”</blockquote>
+            <cite>Siti</cite>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reasons" id="kenapa">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-5"><h2 class="h-lg">Belanja snack tanpa ribet</h2></div>
+        <div class="col-lg-7">
+          <div class="reason"><h3><b>Murah.</b> Harga bersahabat</h3><p class="muted mb-0">Cocok untuk stok di rumah, oleh-oleh, acara keluarga, atau dijual lagi.</p></div>
+          <div class="reason"><h3><b>Berkualitas.</b> Dikemas rapi</h3><p class="muted mb-0">Setiap snack dikemas dalam plastik bening bersegel dan berlabel Berkah Snack.</p></div>
+          <div class="reason"><h3><b>Bergaransi.</b> Aman dipesan</h3><p class="muted mb-0">Ada masalah dengan pesanan? Hubungi kami lewat WhatsApp.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reseller" id="reseller">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-8">
+          <h2 class="h-xl mb-3">Open reseller</h2>
+          <p class="muted fs-5 mb-0">Mau jualan snack tanpa repot produksi? Ambil dari kami dan jual lagi. Tanyakan harga reseller lewat WhatsApp.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end"><a class="btn btn-dark2 btn-lg" href="https://wa.me/6289520659742?text=Halo%20Berkah%20Snack%2C%20saya%20mau%20tanya%20harga%20reseller">Tanya harga reseller</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lokasi" class="light">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5 order-lg-2" data-speed="-0.04">
+          <img class="shop-photo" loading="lazy" src="images/toko.jpg" alt="Toko Berkah Snack di Jl. Babakan Cianjur, Bandung">
+        </div>
+        <div class="col-lg-7 order-lg-1">
+          <h2 class="h-xl mb-4">Mampir ke <em>toko</em> kami</h2>
+          <div class="info-row"><strong>Alamat</strong><br><span class="muted">Jl. Babakan Cianjur, Rt.04 Rw.07, Kel. Campaka, Kec. Andir, Kota Bandung</span></div>
+          <div class="info-row"><strong>Jam buka</strong><br><span class="muted">Setiap hari, 08.00–22.00</span></div>
+          <div class="info-row"><strong>WhatsApp</strong><br><a class="muted" href="https://wa.me/6289520659742">0895 2065 9742</a></div>
+          <div class="info-row"><strong>Instagram</strong><br><a class="muted" href="https://www.instagram.com/berkahsnack_bdg" target="_blank" rel="noopener">@berkahsnack_bdg</a></div>
+          <div class="info-row"><strong>Shopee</strong><br><a class="muted" href="https://shopee.co.id/berkahsnack_bdg" target="_blank" rel="noopener">shopee.co.id/berkahsnack_bdg</a></div>
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <a class="btn btn-gold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Berkah+Snack+Jl.+Babakan+Cianjur+Bandung">Buka di Google Maps</a>
+            <a class="btn btn-line" href="https://wa.me/6289520659742">Chat WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container d-flex flex-column flex-md-row justify-content-between gap-2 muted">
+    <span>© <span id="yr"></span> Toko Berkah Snack, Bandung</span>
+    <span class="d-flex gap-3"><a href="https://www.instagram.com/berkahsnack_bdg" target="_blank" rel="noopener">Instagram</a><a href="https://shopee.co.id/berkahsnack_bdg" target="_blank" rel="noopener">Shopee</a><a href="https://wa.me/6289520659742">WhatsApp</a></span>
+  </div>
+</footer>
+
+<a class="wa-float d-md-none" href="https://wa.me/6289520659742" aria-label="Chat WhatsApp">Chat WhatsApp</a>
+
+<div class="offcanvas offcanvas-end cart-drawer" tabindex="-1" id="cartDrawer" aria-labelledby="cartTitle">
+  <div class="offcanvas-header border-bottom">
+    <h2 class="offcanvas-title h4 mb-0" id="cartTitle">Keranjang pesanan</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <div id="cartItems" aria-live="polite"></div>
+    <p class="cart-note mt-auto mb-3">Harga tiap produk dan ketersediaan akan dikonfirmasi melalui WhatsApp. Harga di toko bisa lebih murah daripada Shopee.</p>
+    <button class="btn btn-gold w-100" type="button" id="checkoutButton" disabled>Pesan via WhatsApp</button>
+    <button class="btn btn-link text-danger mt-2" type="button" id="clearCartButton" hidden>Kosongkan keranjang</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+// [nama, rasa]  -> rasa: gurih / pedas / manis (boleh lebih dari satu, pisahkan dengan spasi, mis. "gurih pedas"). Urutan = p1.jpg, p2.jpg, ... (foto sesuai nama produk)
+const PRODUCTS = [
+  ["Samosa","gurih"],
+  ["Keripik Tempe Bulat","gurih"],
+  ["Keripik Tempe Kotak","gurih"],
+  ["Keripik Pangsit","gurih"],
+  ["Keripik Tahu Bulat","gurih"],
+  ["Sistik Bawang","gurih"],
+  ["Kerupuk Beton","pedas"],
+  ["Keripik Chuba Balado","pedas"],
+  ["Keripik Chuba Keju","gurih"],
+  ["Pilus Rujak","pedas"],
+  ["Keripik Sukun","gurih"],
+  ["Keripik Singkong","gurih"],
+  ["Saroja","gurih"],
+  ["Chiki Kerucut","gurih"],
+  ["Twistop Balado","pedas"],
+  ["Chiki Taro","gurih"],
+  ["Comring Mini","gurih"],
+  ["Comring Besar","gurih"],
+  ["Cireng Kering","gurih"],
+  ["Rambak Kotak","gurih"],
+  ["Rambak Panjang","gurih"],
+  ["Kerupuk Kulit / Dorokdok","gurih"],
+  ["Pikset Cikruh","pedas"],
+  ["Keripik Kaca","pedas"],
+  ["Makaroni Bantat","pedas"],
+  ["Spiral Cikruh","pedas"],
+  ["Moring","gurih pedas"],
+  ["Kerupuk Gurilem","pedas"],
+  ["Kerupuk Kriwil Merah","pedas"],
+  ["Kerupuk Jengkol","pedas"],
+  ["Makaroni Cikruh","pedas"],
+  ["Kerupuk Bunga Bantat","pedas"],
+  ["Kerupuk Melati","gurih"],
+  ["Kerupuk Ring","pedas"],
+  ["Kerupuk Seblak Koin","pedas"],
+  ["Kerupuk Ikan","pedas"],
+  ["Kerupuk Keong","pedas"],
+  ["Endog Lewo (Cimol Kering)","gurih pedas"],
+  ["Basreng Bulat","gurih pedas"],
+  ["Kerupuk Slondok","gurih pedas"],
+  ["Kerupuk Seblak","gurih pedas"],
+  ["Stik Ebi","gurih pedas"],
+  ["Pilus Katus","gurih"],
+  ["Makaroni Asin","gurih"],
+  ["Makaroni Rujak","pedas"],
+  ["Makaroni Mini","pedas"],
+  ["Potato Mini","gurih"],
+  ["Potato Kentang","gurih"],
+  ["Chiki Stik Stik","gurih pedas"],
+  ["Chiki Balls","gurih"],
+  ["Chiki Bantal","gurih"],
+  ["Sistik Daun / Malaysia","gurih"],
+  ["Kue Soes Asin","gurih"],
+  ["Bolu Kering","manis"],
+  ["Kue Soes Coklat","manis"],
+  ["Roti Bagelen Bulat","manis"],
+  ["Roti Bagelen Keju","gurih"],
+  ["Keripik Pisang Manis","manis"],
+  ["Keripik Pisang Asin Renyah","gurih"],
+  ["Stick Talas Asin Renyah","gurih"]
+];
+const card = (n,i) => `<article class="prod"><img class="ph" loading="lazy" src="${i < 26 ? 'images' : 'images-baru-p27-p60/images'}/p${i+1}.jpg" alt="${n}"><p><img src="images/logo.png" alt="" width="30" height="30">${n}</p><button class="add-to-cart" type="button" data-cart-action="add" data-product="${i}">Tambah ke keranjang</button></article>`;
+const row1 = document.getElementById('row1'), row2 = document.getElementById('row2'), slider2 = document.getElementById('slider2');
+
+let cart = {};
+try {
+  const savedCart = JSON.parse(localStorage.getItem('berkahSnackCart') || '{}');
+  if (savedCart && typeof savedCart === 'object' && !Array.isArray(savedCart)) {
+    cart = Object.fromEntries(Object.entries(savedCart).filter(([index, quantity]) => Number.isInteger(Number(index)) && PRODUCTS[Number(index)] && Number.isInteger(quantity) && quantity > 0));
+  }
+} catch { cart = {}; }
+
+function saveCart(){
+  localStorage.setItem('berkahSnackCart', JSON.stringify(cart));
+  renderCart();
+}
+
+function renderCart(){
+  const entries = Object.entries(cart).filter(([, quantity]) => quantity > 0);
+  const count = entries.reduce((sum, [, quantity]) => sum + quantity, 0);
+  document.getElementById('cartCount').textContent = count;
+  const list = document.getElementById('cartItems');
+  list.replaceChildren();
+  if (!entries.length) {
+    list.innerHTML = '<p class="cart-empty">Keranjang masih kosong.</p>';
+  } else {
+    entries.forEach(([index, quantity]) => {
+      const product = PRODUCTS[Number(index)];
+      const item = document.createElement('div');
+      item.className = 'cart-item';
+      item.innerHTML = `<div class="cart-item-name">${product[0]}</div><div class="cart-quantity"><button type="button" data-cart-action="decrease" data-product="${index}" aria-label="Kurangi ${product[0]}">−</button><span>${quantity}</span><button type="button" data-cart-action="increase" data-product="${index}" aria-label="Tambah ${product[0]}">+</button><button type="button" data-cart-action="remove" data-product="${index}" aria-label="Hapus ${product[0]}">×</button></div>`;
+      list.append(item);
+    });
+  }
+  document.getElementById('checkoutButton').disabled = !entries.length;
+  document.getElementById('clearCartButton').hidden = !entries.length;
+}
+
+document.body.addEventListener('click', event => {
+  const button = event.target.closest('[data-cart-action]');
+  if (!button) return;
+  const index = button.dataset.product;
+  const action = button.dataset.cartAction;
+  if (action === 'add' || action === 'increase') cart[index] = (cart[index] || 0) + 1;
+  if (action === 'decrease') cart[index] = Math.max(0, (cart[index] || 0) - 1);
+  if (action === 'remove' || cart[index] === 0) delete cart[index];
+  saveCart();
+});
+
+document.getElementById('clearCartButton').addEventListener('click', () => { cart = {}; saveCart(); });
+document.getElementById('checkoutButton').addEventListener('click', () => {
+  const lines = Object.entries(cart).filter(([, quantity]) => quantity > 0).map(([index, quantity]) => `- ${PRODUCTS[Number(index)][0]} x${quantity}`);
+  const message = `Halo Berkah Snack, saya ingin memesan:\n${lines.join('\n')}\n\nMohon info harga dan ketersediaannya.`;
+  window.open(`https://wa.me/6289520659742?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+});
+renderCart();
+
+function fill(track, items){
+  if (!items.length) { track.innerHTML = ''; return; }
+  const unit = items.map(([n,i]) => card(n,i)).join('');
+  const perSet = items.length * 270;                       // perkiraan lebar satu set kartu
+  const k = Math.max(1, Math.ceil((innerWidth + 300) / perSet));
+  const group = unit.repeat(k);
+  track.innerHTML = group + group;                          // dua salinan agar putarannya mulus
+  track.style.animationDuration = Math.max(20, (perSet * k) / 55) + 's';
+}
+let activeTag = 'semua';
+function render(){
+  const query = document.getElementById('productSearch').value.trim().toLocaleLowerCase('id');
+  const items = PRODUCTS.map(([n,t],i) => [n,i,t])
+    .filter(([name, ,taste]) => (activeTag === 'semua' || taste.split(' ').includes(activeTag)) && name.toLocaleLowerCase('id').includes(query))
+    .map(([name,index]) => [name,index]);
+  document.getElementById('productCount').textContent = items.length ? `Menampilkan ${items.length} produk` : 'Produk tidak ditemukan. Coba kata kunci lain.';
+  row1.parentElement.classList.toggle('filtered', Boolean(query));
+  if (query) {
+    row1.innerHTML = items.map(([name,index]) => card(name,index)).join('');
+    row2.innerHTML = '';
+    slider2.hidden = true;
+    return;
+  }
+  if (items.length > 8) {
+    const half = Math.ceil(items.length/2);
+    fill(row1, items.slice(0,half)); fill(row2, items.slice(half)); slider2.hidden = false;
+  } else { fill(row1, items); row2.innerHTML = ''; slider2.hidden = true; }
+}
+document.getElementById('chips').addEventListener('click', ev => {
+  const b = ev.target.closest('.chip'); if (!b) return;
+  document.querySelectorAll('.chip').forEach(c => { c.classList.toggle('active', c === b); c.setAttribute('aria-pressed', c === b); });
+  activeTag = b.dataset.tag;
+  render();
+});
+document.getElementById('productSearch').addEventListener('input', render);
+render();
+document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => {
+  const m = document.getElementById('menu');
+  if (m.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(m).hide();
+}));
+document.getElementById('yr').textContent = new Date().getFullYear();
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const nav = document.getElementById('nav');
+const items = [...document.querySelectorAll('[data-speed]')];
+
+function parallax(y){
+  nav.classList.toggle('solid', y > 40);
+  if (reduce || innerWidth < 768) return;
+  items.forEach(el => {
+    const r = el.parentElement.getBoundingClientRect();
+    const mid = r.top + r.height/2 - innerHeight/2;
+    el.style.transform = `translate3d(0,${mid * parseFloat(el.dataset.speed) * -1}px,0)`;
+  });
+}
+
+if (window.Lenis && !reduce) {
+  const lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+  lenis.on('scroll', e => parallax(e.scroll));
+  (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', ev => {
+    const id = a.getAttribute('href');
+    if (id.length > 1 && document.querySelector(id)) { ev.preventDefault(); lenis.scrollTo(id, { offset: -70 }); }
+  }));
+} else {
+  addEventListener('scroll', () => parallax(scrollY), { passive: true });
+}
+parallax(0);
+</script>
+</body>
+</html>
