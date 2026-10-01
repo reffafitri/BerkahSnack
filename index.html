@@ -582,8 +582,9 @@ footer{
 }
 @media(max-width:991.98px){
   .hero{padding-top:6rem}
-  .hero-logo{position:static;display:block;width:clamp(120px,40vw,240px);margin:1.4rem 0 0;rotate:-6deg}
+  .hero-logo{position:static;display:block;width:clamp(180px,54vw,240px);margin:1rem auto 0;rotate:0}
   .hero-lead{font-size:1.05rem}
+  .location-row{--bs-gutter-y:1.5rem}
   footer{padding-bottom:5rem}
 }
 
@@ -811,12 +812,13 @@ footer{
 
   <section id="lokasi" class="light">
     <div class="container">
-      <div class="row g-5 align-items-center">
+      <div class="row g-5 align-items-center location-row">
+        <div class="col-12 d-lg-none"><h2 class="h-xl mb-0">Mampir ke <em>toko</em> kami</h2></div>
         <div class="col-lg-5 order-lg-2" data-speed="-0.04">
           <img class="shop-photo" loading="lazy" src="images/toko.jpg" alt="Toko Berkah Snack di Jl. Babakan Cianjur, Bandung">
         </div>
         <div class="col-lg-7 order-lg-1">
-          <h2 class="h-xl mb-4">Mampir ke <em>toko</em> kami</h2>
+          <h2 class="h-xl mb-4 d-none d-lg-block">Mampir ke <em>toko</em> kami</h2>
           <div class="info-row"><strong>Alamat</strong><br><span class="muted">Jl. Babakan Cianjur, Rt.04 Rw.07, Kel. Campaka, Kec. Andir, Kota Bandung</span></div>
           <div class="info-row"><strong>Jam buka</strong><br><span class="muted">Setiap hari, 08.00–22.00</span></div>
           <div class="info-row"><strong>WhatsApp</strong><br><a class="muted" href="https://wa.me/6289520659742">0895 2065 9742</a></div>
