@@ -68,7 +68,6 @@ a{color:inherit}
   color:var(--gold)
 }
 
-/* nav */
 .nav-wrap{
   position:fixed;
   inset:0 0 auto 0;
@@ -102,7 +101,6 @@ a{color:inherit}
   color:var(--gold)
 }
 
-/* hero */
 .hero{
   min-height:100svh;
   display:flex;
@@ -113,7 +111,7 @@ a{color:inherit}
   overflow:hidden
 }
 .hero-word{
-  font-size:clamp(4.2rem,17.5vw,17rem);
+  font-size:clamp(3.2rem,13vw,12rem);
   color:var(--gold);
   white-space:nowrap;
   margin:0;
@@ -121,7 +119,16 @@ a{color:inherit}
 }
 .hero-word.w2{
   color:var(--cream);
-  margin-left:8vw
+  margin-left:clamp(4rem,16vw,14rem)
+}
+@media(max-width:767.98px){
+  .hero-word{
+    display:inline-block;
+    font-size:clamp(3rem,12vw,4.8rem);
+    vertical-align:baseline
+  }
+  .hero-word:not(.w2){margin-left:4vw}
+  .hero-word.w2{margin-left:.3rem}
 }
 .hero-word span{
   display:inline-block;
@@ -152,7 +159,10 @@ a{color:inherit}
 }
 @media(
   min-width:992px)
-  {.hero-logo{right:17%;top:22%}}
+  {
+    .hero-logo{right:12%;top:22%}
+    .hero-word:not(.w2){margin-left:clamp(1rem,4vw,4rem)}
+  }
 .hero-bag{
   position:absolute;
   border-radius:14px;
@@ -178,7 +188,6 @@ a{color:inherit}
   font-size:1.2rem
 }
 
-/* marquee */
 .marquee{
   border-block:1px solid rgba(255,241,208,.18);
   overflow:hidden;
@@ -207,7 +216,6 @@ a{color:inherit}
   }
 }
 
-/* sections */
 section{
   padding:clamp(4.5rem,10vw,9rem) 0
 }
@@ -218,7 +226,6 @@ section{
   font-size:clamp(2.2rem,5vw,4rem)
 }
 
-/* products */
 .light{
   background:#fffdf7;
   color:#1b1108
@@ -448,7 +455,6 @@ section{
   color:rgba(27,17,8,.68)
 }
 
-/* reasons */
 .reasons{
   background:var(--bg2)
 }
@@ -466,7 +472,6 @@ section{
 }
 .reasons .h-lg{color:#fff}
 
-/* reseller */
 .reseller{
   background:var(--gold);
   color:#1b1108
@@ -486,7 +491,6 @@ section{
   color:var(--gold)
 }
 
-/* location */
 .shop-photo{
   border-radius:20px;
   width:100%;
@@ -771,14 +775,14 @@ footer{
           <article class="review-card">
             <div class="review-stars" aria-label="Rating 5 dari 5">★★★★★</div>
             <blockquote>“Pilihan snack-nya banyak, jadi gampang cari camilan yang disukai semua orang.”</blockquote>
-            <cite>Dedi</cite>
+            <cite>Fahri</cite>
           </article>
         </div>
         <div class="col-md-4">
           <article class="review-card">
             <div class="review-stars" aria-label="Rating 5 dari 5">★★★★★</div>
             <blockquote>“Pesanannya ditangani dengan ramah. Pasti ingin belanja lagi.”</blockquote>
-            <cite>Siti</cite>
+            <cite>Kayla</cite>
           </article>
         </div>
       </div>
